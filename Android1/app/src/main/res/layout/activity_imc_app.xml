@@ -118,12 +118,18 @@
                 android:id="@+id/tvAltura"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="300 cm"
+                android:text="120 cm"
                 android:textSize="38sp"
                 android:textColor="@color/white"
                 android:textStyle="bold"/>
 
-            <
+            <com.google.android.material.slider.RangeSlider
+                android:id="@+id/rsHeight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stepSize="1"
+                android:valueFrom="120"
+                android:valueTo="200"/>
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
