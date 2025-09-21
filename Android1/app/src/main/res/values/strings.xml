@@ -45,4 +45,24 @@
     <string name="card_hombre">Hombre</string>
     <string name="card_mujer">Mujer</string>
     <string name="card_altura">Altura</string>
+    <string name="card_peso">PESO</string>
+    <string name="card_edad">EDAD</string>
+    <string name="imagen_logo_de_genero_femenino">Imagen Logo de Genero Femenino</string>
+    <string name="imagen_logo_de_genero_masculino">Imagen Logo de Genero Masculino</string>
+    <string name="boton_de_sumar">Boton de sumar</string>
+    <string name="boton_de_restar">Boton de restar</string>
+    <string name="calculate">CALCULAR</string>
+    <string name="recalculate">RECALCULAR</string>
+    <string name="result">Tu Resultado</string>
+
+    <string name="title_peso_normal">Normal</string>
+    <string name="title_peso_bajo">Peso bajo</string>
+    <string name="title_peso_sobre_peso">Sobre peso</string>
+    <string name="title_peso_obesidad">Obesidad</string>
+    <string name="error">Error</string>
+
+    <string name="description_peso_bajo">Estas por debajo de lo optimo para tu peso y altura</string>
+    <string name="description_peso_normal">Estas en lo optimo para tu peso y altura</string>
+    <string name="description_sobre_peso">Estas por encima de lo optimo para tu peso y altura</string>
+    <string name="description_obesidad">Estas muy por encima de lo optimo para tu peso y altura</string>
 </resources>
