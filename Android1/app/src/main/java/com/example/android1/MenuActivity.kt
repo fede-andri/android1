@@ -1,5 +1,6 @@
 package com.example.android1
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -10,21 +11,24 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.android1.firstapp.FirstAppActivity
 import com.example.android1.imcapp.ImcAppActivity
+import com.example.android1.toDoApp.ToDoAppActivity
+import com.example.android1.R as R1
 
 class MenuActivity : AppCompatActivity() {
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_menu)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+        setContentView(R1.layout.activity_menu)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R1.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        val btnFirstApp = findViewById<Button>(R.id.btnFirstApp)
-        val btnImcApp = findViewById<Button>(R.id.btnImcApp)
-
+        val btnFirstApp = findViewById<Button>(R1.id.btnFirstApp)
+        val btnImcApp = findViewById<Button>(R1.id.btnImcApp)
+        val btnToDoApp = findViewById<Button>(R1.id.btnToDoApp)
         btnFirstApp.setOnClickListener {
             Log.i("MenuActivity", "Se apreto el boton de first app")
             navigateToFirstApp()
@@ -34,6 +38,16 @@ class MenuActivity : AppCompatActivity() {
             Log.i("MenuActivity", "Se apreto el boton de imc app")
             navigateToImcApp()
         }
+
+        btnToDoApp.setOnClickListener {
+            Log.i("MenuActivity", "Se apreto el boton de ToDo app")
+            navigateToToDoApp()
+        }
+    }
+
+    private fun navigateToToDoApp() {
+        val intentToDoApp = Intent(this,ToDoAppActivity::class.java)
+        startActivity(intentToDoApp)
     }
 
     private fun navigateToImcApp() {

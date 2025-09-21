@@ -45,4 +45,7 @@
     <string name="card_hombre">Hombre</string>
     <string name="card_mujer">Mujer</string>
     <string name="card_altura">Altura</string>
+    <string name="to_do_app">TO-DO App</string>
+    <string name="imc_app">IMC App</string>
+    <string name="first_app">First App</string>
 </resources>
