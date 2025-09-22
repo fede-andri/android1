@@ -45,7 +45,7 @@
     <string name="card_hombre">Hombre</string>
     <string name="card_mujer">Mujer</string>
     <string name="card_altura">Altura</string>
-<<<<<<< HEAD
+
     <string name="card_peso">PESO</string>
     <string name="card_edad">EDAD</string>
     <string name="imagen_logo_de_genero_femenino">Imagen Logo de Genero Femenino</string>
@@ -66,9 +66,10 @@
     <string name="description_peso_normal">Estas en lo optimo para tu peso y altura</string>
     <string name="description_sobre_peso">Estas por encima de lo optimo para tu peso y altura</string>
     <string name="description_obesidad">Estas muy por encima de lo optimo para tu peso y altura</string>
-=======
+
     <string name="to_do_app">TO-DO App</string>
     <string name="imc_app">IMC App</string>
     <string name="first_app">First App</string>
->>>>>>> 3411784fcb555ce8d472845aed07a57a9ff81b05
+    <string name="bienvenido">Bienvenido</string>
+
 </resources>
