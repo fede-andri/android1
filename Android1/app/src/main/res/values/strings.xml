@@ -77,5 +77,6 @@
     <string name="todo_radio_button_otros">Otros</string>
     <string name="todo_radio_button_personal">Personal</string>
     <string name="todo_radio_button_negocio">Negocio</string>
+    <string name="todo_btn_crear_tarea">CREAR TAREA</string>
 
 </resources>

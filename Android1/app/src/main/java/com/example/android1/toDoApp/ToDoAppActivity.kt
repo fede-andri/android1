@@ -5,6 +5,9 @@ import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.EditText
+import android.widget.RadioButton
+import android.widget.RadioGroup
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -14,11 +17,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android1.R
 import com.example.android1.toDoApp.categories.CategoriesAdapter
+import com.example.android1.toDoApp.categories.TaskCategory
 import com.example.android1.toDoApp.categories.TaskCategory.Personal
 import com.example.android1.toDoApp.categories.TaskCategory.Business
 import com.example.android1.toDoApp.categories.TaskCategory.Other
 import com.example.android1.toDoApp.tasks.Task
 import com.example.android1.toDoApp.tasks.TasksAdapter
+import com.google.android.material.button.MaterialButton
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlin.math.log
 
@@ -43,6 +48,7 @@ class ToDoAppActivity : AppCompatActivity() {
     )
 
     private lateinit var fabAddTask:FloatingActionButton
+    //private lateinit var btnAddTask:MaterialButton
     private lateinit var rvCategorias: RecyclerView
     private lateinit var rvTasks: RecyclerView
     private lateinit var categoriesAdapter: CategoriesAdapter;
@@ -67,6 +73,7 @@ class ToDoAppActivity : AppCompatActivity() {
         rvCategorias = findViewById(R.id.rvCategorias)
         rvTasks = findViewById(R.id.rvTasks)
         fabAddTask = findViewById(R.id.fabAddTask)
+        //btnAddTask = findViewById(R.id.btnAddTask)
     }
 
     private fun initUI() {
@@ -96,11 +103,40 @@ class ToDoAppActivity : AppCompatActivity() {
         }
     }
 
+    private fun guardarTarea() {
+        TODO("Not yet implemented")
+    }
+
     private fun showDialogog() {
         val dialog = Dialog(this)
         dialog.setContentView(R.layout.dialog_todo_task)
+        val btnAddTask:MaterialButton = dialog.findViewById(R.id.btnAddTask)
+        val etTask:EditText = dialog.findViewById(R.id.etTask)
+        val rgCategory: RadioGroup = dialog.findViewById(R.id.rgCategory)
+
+        btnAddTask.setOnClickListener {
+            val selectedId = rgCategory.checkedRadioButtonId
+            val selectedRadioButton:RadioButton = rgCategory.findViewById(selectedId)
+            val currentCategory:TaskCategory = when(selectedRadioButton.text){
+                "Negocios" -> Business
+                "Personal" -> Personal
+                else -> Other
+            }
+            if(etTask.text.toString().isNotEmpty()){
+                tasks.add(Task(etTask.text.toString(),currentCategory))
+                updateTask()
+                dialog.hide()
+            }
+
+
+        }
+
         dialog.show()
 
+    }
+
+    private fun updateTask(){
+        tasksAdapter.notifyDataSetChanged()
     }
 
     private fun setStyles() {

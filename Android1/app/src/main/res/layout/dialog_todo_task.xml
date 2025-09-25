@@ -51,6 +51,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/todo_accent"
         app:cornerRadius="0dp"
-        android:text="CREAR TAREA"
+        android:textAllCaps="true"
+        android:text="@string/todo_btn_crear_tarea"
         android:layout_marginTop="8dp"/>
 </LinearLayout>
