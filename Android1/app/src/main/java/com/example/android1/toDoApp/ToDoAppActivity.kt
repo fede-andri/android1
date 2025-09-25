@@ -56,18 +56,7 @@ class ToDoAppActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        //Se setean los estilos de la barra de estados y de la barra de navegacion
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            getWindow().setStatusBarColor(
-                ContextCompat.getColor(this, R.color.todo_background_todo_app));
-        }
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            getWindow().getDecorView().setSystemUiVisibility(0);
-            getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.todo_background_todo_app));
-            // Iconos oscuros
-            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
-        }
+        setStyles()
         initComponnent()
         initUI()
         setListenners()
@@ -103,6 +92,28 @@ class ToDoAppActivity : AppCompatActivity() {
     private fun setListenners() {
         fabAddTask.setOnClickListener {
             Log.i("todoApp","Se presiono el boton de Add Task")
+        }
+    }
+
+    private fun setStyles() {
+        //Se setean los estilos de la barra de estados y de la barra de navegacion
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setStatusBarColor(
+                ContextCompat.getColor(this, R.color.todo_background_todo_app)
+            );
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            getWindow().getDecorView().setSystemUiVisibility(0);
+            getWindow().setNavigationBarColor(
+                ContextCompat.getColor(
+                    this,
+                    R.color.todo_background_todo_app
+                )
+            );
+            // Iconos oscuros
+            getWindow().getDecorView()
+                .setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
         }
     }
 }
