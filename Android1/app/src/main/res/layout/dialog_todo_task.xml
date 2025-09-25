@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="250dp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/todo_background_todo_app"
+    android:padding="16dp">
+    
+    <EditText
+        android:id="@+id/etTask"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:hint="@string/hint_añade_la_tarea"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"/>
+    <RadioGroup
+        android:id="@+id/rgCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/rbBussines"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/todo_radio_button_negocio"
+            android:checked="true"
+            android:textColor="@color/white"
+            app:buttonTint="@color/radio_business_tint"/>
+
+        <RadioButton
+            android:id="@+id/rbPersonal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/todo_radio_button_personal"
+            android:textColor="@color/white"
+            app:buttonTint="@color/radio_personal_tint"/>
+
+        <RadioButton
+            android:id="@+id/rbOthers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/todo_radio_button_otros"
+            android:textColor="@color/white"
+            app:buttonTint="@color/radio_other_tint"/>
+    </RadioGroup>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnAddTask"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/todo_accent"
+        app:cornerRadius="0dp"
+        android:text="CREAR TAREA"
+        android:layout_marginTop="8dp"/>
+</LinearLayout>

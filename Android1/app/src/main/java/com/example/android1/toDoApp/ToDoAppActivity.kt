@@ -1,5 +1,6 @@
 package com.example.android1.toDoApp
 
+import android.app.Dialog
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -91,8 +92,15 @@ class ToDoAppActivity : AppCompatActivity() {
 
     private fun setListenners() {
         fabAddTask.setOnClickListener {
-            Log.i("todoApp","Se presiono el boton de Add Task")
+            showDialogog( )
         }
+    }
+
+    private fun showDialogog() {
+        val dialog = Dialog(this)
+        dialog.setContentView(R.layout.dialog_todo_task)
+        dialog.show()
+
     }
 
     private fun setStyles() {
