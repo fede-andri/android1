@@ -34,18 +34,7 @@ class ToDoAppActivity : AppCompatActivity() {
         Other
     )
 
-    private val tasks = mutableListOf(
-        Task("Ordenar",Personal, false),
-        Task("Estudiar",Business, false),
-        Task("Leer",Personal, false),
-        Task("Leer",Personal, false),
-        Task("Leer",Other, false),
-        Task("Leer",Other, false),
-        Task("Leer",Business, false),
-        Task("Leer",Business, false),
-        Task("Leer",Personal, false),
-        Task("Cocinar",Other, false)
-    )
+    private val tasks = mutableListOf<Task>()
 
     private lateinit var fabAddTask:FloatingActionButton
     //private lateinit var btnAddTask:MaterialButton
@@ -103,10 +92,6 @@ class ToDoAppActivity : AppCompatActivity() {
         }
     }
 
-    private fun guardarTarea() {
-        TODO("Not yet implemented")
-    }
-
     private fun showDialogog() {
         val dialog = Dialog(this)
         dialog.setContentView(R.layout.dialog_todo_task)
@@ -117,22 +102,19 @@ class ToDoAppActivity : AppCompatActivity() {
         btnAddTask.setOnClickListener {
             val selectedId = rgCategory.checkedRadioButtonId
             val selectedRadioButton:RadioButton = rgCategory.findViewById(selectedId)
+            val currentEditText = etTask.text.toString()
             val currentCategory:TaskCategory = when(selectedRadioButton.text){
-                "Negocios" -> Business
+                "Negocio" -> Business
                 "Personal" -> Personal
                 else -> Other
             }
-            if(etTask.text.toString().isNotEmpty()){
-                tasks.add(Task(etTask.text.toString(),currentCategory))
+            if(currentEditText.isNotEmpty()){
+                tasks.add(Task(currentEditText,currentCategory))
                 updateTask()
                 dialog.hide()
             }
-
-
         }
-
         dialog.show()
-
     }
 
     private fun updateTask(){
