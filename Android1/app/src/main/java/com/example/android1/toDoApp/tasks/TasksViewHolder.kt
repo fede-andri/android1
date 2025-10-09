@@ -1,6 +1,7 @@
 package com.example.android1.toDoApp.tasks
 
 import android.content.res.ColorStateList
+import android.graphics.Paint
 import android.view.View
 import android.widget.CheckBox
 import android.widget.TextView
@@ -29,6 +30,14 @@ class TasksViewHolder(private val view: View): RecyclerView.ViewHolder(view) {
                 val color = ContextCompat.getColor(view.context,R.color.todo_personal_category)
                 chbTask.buttonTintList = ColorStateList.valueOf(color)
             }
+
         }
+        if (task.isSlected){
+            tvTask.paintFlags = tvTask.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+        }else{
+            tvTask.paintFlags = tvTask.paintFlags and  Paint.STRIKE_THRU_TEXT_FLAG.inv()
+        }
+
+        chbTask.isChecked = task.isSlected
     }
 }

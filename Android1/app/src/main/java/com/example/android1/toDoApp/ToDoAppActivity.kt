@@ -72,8 +72,8 @@ class ToDoAppActivity : AppCompatActivity() {
     }
 
     private fun initAdapters() {
-        categoriesAdapter = CategoriesAdapter(categories)
-        tasksAdapter = TasksAdapter(tasks)
+        categoriesAdapter = CategoriesAdapter(categories) { position -> onCategorySelected(position) }
+        tasksAdapter = TasksAdapter(tasks) { position -> onItemSelected(position) }
     }
 
     private fun setRecyclerViewCategories() {
@@ -117,7 +117,21 @@ class ToDoAppActivity : AppCompatActivity() {
         dialog.show()
     }
 
+    private fun onCategorySelected(position: Int){
+        categories[position].isSelected = !categories[position].isSelected
+        categoriesAdapter.notifyItemChanged(position)
+        updateTask()
+    }
+
+    private fun onItemSelected(position:Int){
+        tasks[position].isSlected = !tasks[position].isSlected
+        updateTask()
+    }
+
     private fun updateTask(){
+        val selectedCategories:List<TaskCategory> = categories.filter { it.isSelected }
+        val newTasks = tasks.filter { selectedCategories.contains(it.category) }
+        tasksAdapter.tasks = newTasks
         tasksAdapter.notifyDataSetChanged()
     }
 
