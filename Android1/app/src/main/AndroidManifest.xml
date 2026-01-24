@@ -13,13 +13,15 @@
         android:theme="@style/Theme.Android1"
         tools:targetApi="31">
         <activity
+            android:name=".superheroe.SuperHeroeListActivity"
+            android:exported="false" />
+        <activity
             android:name=".imcapp.ResponseIMCActivity"
             android:exported="false" />
         <activity
             android:name=".toDoApp.ToDoAppActivity"
             android:exported="false"
-            android:theme="@style/Theme.TodoApp"/>
-
+            android:theme="@style/Theme.TodoApp" />
         <activity
             android:name=".imcapp.ImcAppActivity"
             android:exported="false" />

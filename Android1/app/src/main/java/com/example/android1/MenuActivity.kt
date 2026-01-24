@@ -11,6 +11,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.android1.firstapp.FirstAppActivity
 import com.example.android1.imcapp.ImcAppActivity
+import com.example.android1.superheroe.SuperHeroeListActivity
 import com.example.android1.toDoApp.ToDoAppActivity
 import com.example.android1.R as R1
 
@@ -29,6 +30,8 @@ class MenuActivity : AppCompatActivity() {
         val btnFirstApp = findViewById<Button>(R1.id.btnFirstApp)
         val btnImcApp = findViewById<Button>(R1.id.btnImcApp)
         val btnToDoApp = findViewById<Button>(R1.id.btnToDoApp)
+        val btnHeroeList = findViewById<Button>(R1.id.btnHeroeListApp)
+
         btnFirstApp.setOnClickListener {
             Log.i("MenuActivity", "Se apreto el boton de first app")
             navigateToFirstApp()
@@ -43,6 +46,16 @@ class MenuActivity : AppCompatActivity() {
             Log.i("MenuActivity", "Se apreto el boton de ToDo app")
             navigateToToDoApp()
         }
+
+        btnHeroeList.setOnClickListener {
+            Log.i("MenuActivity","Se apreto el boton de Heroe List App")
+            navigateToHeroeList()
+        }
+    }
+
+    private fun navigateToHeroeList() {
+        val intentHeroeList = Intent(this, SuperHeroeListActivity::class.java)
+        startActivity(intentHeroeList)
     }
 
     private fun navigateToToDoApp() {
